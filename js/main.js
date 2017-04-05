@@ -49,7 +49,7 @@ define([], function () {
 	});
 
 
-	//根据页面的路径进行不同页面的区分今儿加载不同的js 
+	//根据页面的路径进行不同页面的区分今儿加载不同的js  页面公共部分抽取&页面js加载配置
 	var pathname = location.pathname;
   
   switch(pathname) {
