@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='jquery.min.js'></script>
+</head>
+
+<body>
+</body>
+
+</html>
+<script>
+    (function addDocumentAjaxEvent() {
+        $(document).ajaxStart(function () {
+            console.log('ajaxstart事件触发了'); //如果同时发送多个请求，只有第一个请求触发一次该事件
+        }); //这个事件默认不会被触发
+        $(document).ajaxSend(function () {
+            console.log('ajaxSend事件触发了'); //如果同时发送多个请求，每个请求都会触发该事件
+        });
+        $(document).ajaxSuccess(function () {
+            console.log('ajaxSuccess事件触发了'); //如果同时发送多个请求，每个请求都会触发该事件
+        });
+        $(document).ajaxError(function () {
+            console.log('ajaxError事件触发了'); //如果同时发送多个请求，每个请求都会触发该事件
+        });
+        $(document).ajaxStop(function () {
+            console.log('ajaxStop事件触发了'); //如果同时发送多个请求，只有最后一个请求触发该事件
+        });
+        $(document).ajaxComplete(function () {
+            console.log('ajaxComplete事件触发了'); //如果同时发送多个请求，每个请求都会触发该事件
+        });
+    })();
+    $.ajax({
+        type: 'GET',
+        url: '/v6/logout',
+
+    });
+    $.get('/abc');
+
+    // 上面请求结束后，再发送两个请求
+    setTimeout(function () {
+        $.get('/abc');
+        $.get('/abc');
+
+
+    }, 10000);
+</script>

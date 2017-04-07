@@ -19,11 +19,16 @@
 
 
 
-// jqueryCookie搜索define定义的模块，但是像这种jquery插件,并没有返回东西，所有引入他们得到的返回值是undefine
-define(['jquery','jqueryCookie'],function($,undefined){
-    // 如果没有PHPSESSID这个cookie，证明没有登陆过，跳转到登陆页面
-    if(!$.cookie('PHPSESSID')){
-        location.href ='/html/home/login.html';
-    }
+// jqueryCookie是define定义的模块，但是像这种jquery插件,并没有返回东西，所有引入他们得到的返回值是undefine
+define(['jquery', 'jqueryCookie'], function ($, undefined ) {
+    //登录校验
+    (function () {
+        // 如果没有PHPSESSID这个cookie，证明没有登陆过，跳转到登陆页面
+        if (!$.cookie('PHPSESSID')) {
+            location.href = '/html/home/login.html';
+        }
+    })();
 
+
+    
 });

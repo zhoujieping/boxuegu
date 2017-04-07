@@ -27,6 +27,7 @@ define([], function () {
 			common:'js/common/common',
 			aside:'js/common/aside',
 			header:'js/common/header',
+			loading:'js/common/loading',
 
 			// 配置第三方js模块别名
 			template: 'lib/artTemplate/template-debug',
@@ -53,7 +54,7 @@ define([], function () {
 
 	// 所有的页面，只要main.js加载完毕了，那么就优先加载进度条插件，显式进度条
   require(['nprogress'], function(nprogress) {
-  	nprogress.start();
+  	nprogress.start();//越早调用越好
   });
 
 
