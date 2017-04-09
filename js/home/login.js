@@ -11,7 +11,7 @@ define(['jquery', 'jqueryCookie','nprogress'], function ($,undefined,nprogress) 
     (function () {
         // 表单提交
         $('#login-form').on('submit', function () {
-            // console.log($(this).serialize());
+            console.log($(this).serialize());
             // console.log($(this).serializeArray());
             $.ajax({
                 url: '/v6/login', //已经配置好反向代理解决跨域错误

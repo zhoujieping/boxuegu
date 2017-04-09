@@ -24,7 +24,7 @@
                     <li class="active">讲师列表</li>
                 </ol>
                 <div class="page-title">
-                    <a href="./teacher_add.html" class="btn btn-success btn-sm pull-right">添加讲师</a>
+                    <a href="./teacher_add.html" class=" btn btn-success btn-sm pull-right">添加讲师</a>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -72,8 +72,9 @@
         </div>
     </div>
     <!-- 模态框 添加课程 -->
-    <div class="modal fade" id="teacherModal">
-        <div class="modal-dialog" style="width: 750px;">
+    <div class="modal fade" id="teacher-modal">
+        <!--模态框的坑-->
+        <!--<div class="modal-dialog" style="width: 750px;">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -128,25 +129,84 @@
                     </table>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
+    <!--模态框模板-->
+        <script type='text/tpl' id='teacher-view-tpl'>
+            <div class="modal-dialog" style="width: 750px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="panel-title">讲师信息</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-condensed">
+                        <tbody>
+                            <tr>
+                                <th>姓名:</th>
+                                <td>{{ tc_name }}</td>
+                                <th>职位:</th>
+                                <td colspan="3">讲师</td>
+                                <td rowspan="4" width="128">
+                                    <div class="avatar">
+                                        <img src={{ tc_avatar? tc_avatar: "/img/default.png" }} alt="">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>花名:</th>
+                                <td>{{ tc_roster }}</td>
+                                <th>出生日期:</th>
+                                <td colspan="3">{{ tc_birthday }}</td>
+                            </tr>
+                            <tr>
+                                <th>性别:</th>
+                                <td>{{ tc_gender == 0? '男': '女' }}</td>
+                                <th>入职日期:</th>
+                                <td colspan="3">{{ tc_join_date }}</td>
+                            </tr>
+                            <tr>
+                                <th>手机号码:</th>
+                                <td colspan="2">{{ tc_cellphone }}</td>
+                                <th>邮箱:</th>
+                                <td colspan="2">{{ tc_email }}</td>
+                            </tr>
+                            <tr>
+                                <th>籍贯:</th>
+                                <td colspan="6">{{ tc_hometown.split('|').join(' ') }}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">
+                                    <div class="introduce">
+                                        {{ #tc_introduce }}
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        </script>
     <!--讲师列表模板-->
     <script id='teacher-list-tpl' type='text/tpl'>
         <tbody>
             {{each result as tcObj i}}
             <tr>
                 <td>{{i+1}}</td>
-                <td>{{tcObj.tc_name}}}</td>
-                <td>{{tcObj.tc_roster}}}</td>
+                <td>{{tcObj.tc_name}}</td>
+                <td>{{tcObj.tc_roster}}</td>
                 <td>{{tcObj.tc_birthday}}</td>
                 <!--从接口中可以看到0代表男，1代表女，所以要判断下-->
-                <td>{{tcObj.tc_gender===0?'男':'女'}}</td>
+                <td>{{tcObj.tc_gender==0?'男':'女'}}</td>
                 <td>{{tcObj.tc_cellphone}}</td>
                 <td>{{tcObj.tc_join_date}}</td>
                 <td>
-                    <a href="#teacherModal" data-toggle="modal" class="btn btn-info btn-xs">查 看</a>
-                    <a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>
-                    <a href="javascript::" class="btn btn-warning btn-xs">注 销</a>
+                    <a data-teacher-id='{{tcObj.tc_id}}' href="#teacher-modal" data-toggle="modal" class="teacher-view btn btn-info btn-xs">查 看</a>
+                    <!--<a href="./teacher_add.html" class="btn btn-info btn-xs">编 辑</a>-->
+                    <a href="/html/teacher/teacher_add.html?tc_id={{ tcObj.tc_id }}" class="btn btn-info btn-xs">编 辑</a>
+                    <a data-teacher-id='{{tcObj.tc_id}}' data-teacher-status='{{tcObj.tc_status}}' href="javascript:;" class="teacher-handle btn btn-warning btn-xs">注 销</a>
                 </td>
             </tr>
             {{/each}}
