@@ -33,6 +33,7 @@ define([], function () {
 			template: 'lib/artTemplate/template-debug',
 			bootstrap: 'lib/bootstrap/js/bootstrap',
 			datepicker: 'lib/bootstrap-datepicker/js/bootstrap-datepicker',
+			datepickerCN: 'lib/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
 			ckeditor: 'lib/ckeditor/ckeditor',
 			ckeditorLand: 'lib/ckeditor/lang/zh-cn',
 			echarts: 'lib/echarts/echarts.min',
@@ -41,6 +42,7 @@ define([], function () {
 			jqueryForm: 'lib/jquery-form/jquery.form',
 			jqueryRegion: 'lib/jquery-region/jquery.region',
 			nprogress: 'lib/nprogress/nprogress',
+		  uploadify: 'lib/uploadify/jquery.uploadify'
 		},
 
 
@@ -48,6 +50,19 @@ define([], function () {
 			// bootstrap是非define定义的模块，优依赖于jquery，所以要配置
 			bootstrap: {
 				deps: ['jquery']
+			},
+
+			// 日期插件的语言包是非defin定义的模块
+			datepickerCN:{
+				deps:['jquery','datepicker']
+			},
+			// 富文本编辑器没有依赖也非define定义的模板，这个模块暴露了一个全局变量CKEDITOR
+			ckeditor:{
+				exports:'CKEDITOR'
+			},
+			// 上传文件的插件依赖于jqery
+			uploadify:{
+				deps:['jquery']
 			}
 		}
 	});

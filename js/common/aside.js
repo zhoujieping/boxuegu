@@ -37,7 +37,7 @@ define(['jquery', 'jqueryCookie', 'template'], function ($, undefined, template)
 
     })();
 
-    //     // // 导航栏下拉列表
+    //   导航栏下拉列表
     (function () {
         // 点击具有下拉功能的a标签，显示隐藏对应的ul列表
         $('#navSlide').on('click', function () {

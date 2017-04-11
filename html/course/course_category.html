@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
     <!--通过php的include方法，当浏览器访问这个页面的时候，php就会把提取出去的公共html片段引入，然后返回给浏览器-->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/html/common/style.html')?>
 </head>
+
 <body>
-    
-     <!--左侧导航-->
+    <!--左侧导航-->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/html/common/aside.html')?>
     <!-- 主体 -->
     <div class="main">
         <div class="container-fluid">
             <!--头部-->
-    <?php include($_SERVER['DOCUMENT_ROOT'].'/html/common/header.html')?>
+            <?php include($_SERVER['DOCUMENT_ROOT'].'/html/common/header.html')?>
             <div class="body course-category">
                 <!-- 面包屑 -->
                 <ol class="breadcrumb">
@@ -25,7 +26,7 @@
                     <a href="./course_category_add.html" class="btn btn-success btn-sm pull-right">添加分类</a>
                 </div>
                 <div class="panel panel-default">
-                    <table class="table table-bordered">
+                    <table id="course-category-table" class="table table-bordered">
                         <thead>
                             <tr>
                                 <th width="18%">分类名称</th>
@@ -35,159 +36,32 @@
                                 <th width="10%">操作</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr class="active">
-                                <td class="text-left">前端开发</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left">&nbsp;&nbsp;├ HTML/CSS</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left">&nbsp;&nbsp;├ Javascript</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left">&nbsp;&nbsp;├ 移动Web</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr class="active">
-                                <td class="text-left">后端开发</td>
-                                <td>14</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left">&nbsp;&nbsp;├ NodeJS</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left">&nbsp;&nbsp;├ PHP</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr class="active">
-                                <td class="text-left">数据库</td>
-                                <td>18</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left">&nbsp;&nbsp;├ Mysql</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left">&nbsp;&nbsp;├  MongoDB</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left">&nbsp;&nbsp;├  Oracle</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr class="active">
-                                <td class="text-left">云计算&大数据</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left">&nbsp;&nbsp;├  大数据</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left">&nbsp;&nbsp;├  云计算</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr class="active">
-                                <td class="text-left">视觉设计</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-left">&nbsp;&nbsp;├  Photoshop</td>
-                                <td>12</td>
-                                <td>是</td>
-                                <td>10</td>
-                                <td>
-                                    <a href="./course_category_add.html" class="btn btn-info btn-xs">编辑</a>
-                                </td>
-                            </tr>
-                        </tbody>
+                        <!--分类列表的坑-->
                     </table>
                 </div>
             </div>
         </div>
     </div>
-
+    <!--课程分类列表模板-->
+    <script type='text/tpl' id='course-category-tpl'>
+        <tbody>
+            {{ each result as category i }}
+            <!--判断是不是顶级分类，是顶级分类就添加高亮，否则就不用-->
+            <tr class={{ category.cg_pid==0? 'active':'' }}>
+                <td class="text-left">{{ category.cg_name }}</td>
+                <td>{{ category.cg_level }}</td>
+                <td>{{ category.cg_is_hide ==0? '是':'否' }}</td>
+                <td>{{ category.cg_order }}</td>
+                <td>
+                    <!--编辑按钮通过传入的id跳转到对应的页面-->
+                    <a href="/html/course/course_category_add.html?cg_id={{ category.cg_id }}" class="btn btn-info btn-xs">编辑</a>
+                </td>
+            </tr>
+            {{ /each }}
+        </tbody>
+    </script>
     <!--页面公共脚本  -->
     <?php include($_SERVER['DOCUMENT_ROOT'].'/html/common/script.html')?>
 </body>
+
 </html>

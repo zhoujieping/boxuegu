@@ -30,5 +30,23 @@ define(['jquery', 'jqueryCookie'], function ($, undefined ) {
     })();
 
 
+    // 对外暴露一个对象
+    return{
+        // age:100 //测试
+
+
+        // 把页面中的查询字符串转成为对象的形式
+        parseSearch:function(searchName){
+            // location.search;//当以get方式在url中传递了请求参数时，可以利用location的search属性提取参数的值,连问号也获取到
+            var searchArr = location.search.slice(1).split('&');//得到一个数组
+            var searchObj = {},tempArr;
+            for(var i=0;i<searchArr.length;i++){
+                   tempArr= searchArr[i].split('=');
+                   searchObj[tempArr[0]] =tempArr[1];//searchObj[tempArr[0]]为key,tempArr[1]为value
+            }
+           // 如果没有传参，那么返回对象，传了，返回指定的参数值
+            return (searchName==null)? searchObj:searchObj[searchName];
+        }
+    };
     
 });
